@@ -1,0 +1,339 @@
+.body{
+    background-color:#eff3f4 ;
+    font-family: 'Microsoft Yahei', '微软雅黑';
+}
+.center{
+    width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+.index-nav{
+    width: 1198px;
+    height: 38px;
+    border: 1px solid #f5a623;
+    border-radius:3px ;
+    margin: 12px auto 0;
+}
+.index-nav div{
+    cursor: pointer;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    line-height: 38px;
+    border-right:1px solid #f5a623 ;
+}
+.index-nav div:hover{
+    background-color: #f5a623;
+    color: white;
+}
+.index-nav-choose{
+    background-color: #f5a623;
+    color: white;
+}
+.index-nav-1{
+    width: 141px;
+}
+.index-nav-2{
+    width: 169px;
+}
+.index-nav-3{
+    width: 184px;
+}
+.index-nav-4{
+    width: 179px;
+}
+.index-nav-5{
+    width: 260px;
+}
+.index-nav .index-nav-6{
+    width: 260px;
+    border-right:0;
+}
+.index-head{
+    height: 460px;
+    width: 1200px;
+    margin-top: 2px;
+}
+.i-h-l{
+    float: left;
+    width: 222px;
+    height: 460px;
+    border-radius:3px ;
+    border-top-left-radius: 0;
+    text-align: center;
+    margin-right: 5px;
+}
+.i-h-l .title{
+    height: 59px;
+    line-height: 59px;
+    font-size: 18px;
+    background-color: #f5a623;
+    color: #fff;
+}
+.hot-game-list li{
+    display: block;
+    height: 32px;
+    line-height: 32px;
+    font-size: 13px;
+    background-color: #e29619;
+    color: #fff;
+}
+.hot-game-list li:hover{
+    background-color: #50e3c2;
+    border-radius: 2px;
+}
+.i-h-m{
+    float: left;
+    width: 700px;
+    height: 460px;
+    margin-right: 7px;
+    background-color: #ccc;
+}
+.i-h-r{
+    float: left;
+    width: 266px;
+    height: 460px;
+    background-color: #ccc;
+}
+.i-h-r .serve{
+    border:1px solid #f5a623 ;
+    border-radius: 3px;
+    height: 151px;
+    width: 264px;
+}
+.i-h-r .system{
+    border:1px solid #f5a623 ;
+    border-radius: 3px;
+    height: 238px;
+    width: 264px;
+    margin-top: 4px;
+}
+.i-h-r .title{
+    height: 49px;
+    line-height: 49px;
+    background-color: #f5a623;
+    color: #fff;
+    font-size: 18px;
+}
+.i-h-r .more{
+    float: right;
+}
+.i-h-r .left{
+    font-size:
+}
+.i-h-r .news-list{
+    font-size: 12px;
+    height: 27px;
+    line-height: 27px;
+
+}
+.i-h-r .news-list span{
+    float: left;
+}
+.i-h-r .bull{
+    text-align: center;
+    color: #f5a623;
+    width: 30px;
+}
+.i-h-r .tt{
+    width: 153px;
+    white-space:nowrap;          /* 不换行 */
+    overflow:hidden;               /* 内容超出宽度时隐藏超出部分的内容 */
+    text-overflow:ellipsis;         /* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+}
+.i-h-r .top{
+    margin-top: 6px;
+}
+.index-middel{
+    height: 380px;
+    width: 1200px;
+}
+.index-middel ul{
+    display: block;
+    margin: 0 auto;
+}
+.index-middel .list-li{
+    float: left;
+    width: 184px;
+    text-align: center;
+    height: 367px;
+    margin-right: 60px;
+}
+.index-middel .list-li-left{
+    margin-left: 20px;
+}
+.index-middel .list-li .title{
+    width: 184px;
+    font-size: 16px;
+}
+.index-middel .list-li .text{
+    line-height: 18px;
+    width: 184px;
+    margin-top: 14px;
+    font-size: 12px;
+}
+.index-middel .list-li img{
+    display: block;
+    margin: 43px auto 7px;
+}
+.index-middel .list-li-right{
+    margin-right: 0;
+}
+.index-hzhb{
+    width: 1200px;
+}
+.index-bottom{
+    width: 100%;
+    height: 120px;
+    background-color: #323334;
+    border-bottom: 2px solid #eff3f4;
+}
+.index-bottom p{
+    padding-top: 40px;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+}
+.index-bottom p a:hover{
+    text-decoration: none;
+}
+.index-bottom .text2{
+    padding-top: 20px;
+}
+.index-hzhb h5{
+    font-size: 18px;
+    vertical-align: top;
+    font-weight: normal;
+}
+.block-blue{
+    vertical-align: top;
+    display: inline-block;
+    height: 18px;
+    width: 8px;
+    background-color: #50e3c2;
+    margin: 0 11px;
+}
+
+
+body{
+    background: #eff3f4;
+}
+.top{
+    width: 100%;
+    height: 35px;
+    background: #3f434c;
+    font-size: 13px;
+}
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+.container:after {
+    content: "";
+    display:block;
+    clear:both;
+}
+.top .registry {
+    float: left;
+    height: 35px;
+    width: 207px;
+    line-height: 35px;
+
+}
+
+.registry .login {
+    color: #f5a623;
+    margin:0 16px 0 23px;
+}
+.registry:after {
+    content:"";
+    display:block;
+    clear:both;
+}
+.registry p {
+    display:inline;
+    color:#fff;
+
+}
+
+.navlist {
+    float: right;
+}
+.navlist li {
+    float: left;
+    line-height: 35px;
+    color:#fff;
+    margin: 0 20px;
+}
+
+.main .container {
+    background:#fff;
+}
+.main .logo-search {
+    padding-top: 13px;
+}
+.main .logo {
+    float:left;
+    width: 200px;
+    height: 80px;
+    background: #f5a623;
+    text-align: center;
+    line-height: 80px;
+    border-radius: 10px;
+    margin-left:1px;
+    overflow: hidden;
+}
+.search-select {
+    float: left;
+    margin-left: 104px;
+    margin-top: 22px;
+}
+.search-select select {
+    width: 110px;
+    height: 40px;
+    font-size: 14px;
+    padding-right:10px;
+    padding-left:15px;
+    border: solid 1px #50e3c2;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: url(http://ourjs.github.io/static/2015/arrow.png) no-repeat scroll right center transparent;
+    background-position: 84px 14px;
+    border-radius: 2px;
+    margin-left: -5px
+}
+.search {
+    display: inline-block;
+    width: 296px;
+    height: 38px;
+    border: 1px solid #50e3c2;
+    border-radius: 2px;
+    vertical-align: bottom;
+}
+.search input {
+    border: none;
+    outline: none;
+    width: 222px;
+    height: 38px;
+    padding-left: 10px;
+    font-size:14px;
+}
+.search span {
+    display: block;
+    float: right;
+    width: 60px;
+    height: 38px;
+    background: #47ccaf;
+}
+.search span em {
+    display: block;
+    width: 21px;
+    height: 21px;
+    background: #000;
+    margin: 9px auto;
+}
+.bread{
+    width: 1170px;
+    margin: 0 auto;
+}
