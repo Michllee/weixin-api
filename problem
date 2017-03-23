@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>通讯录</title>
+    <META HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
+    <link href="../../sea-modules/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../sea-modules/zTree-master/css/zTreeStyle/zTreeStyle.css" type="text/css" rel="stylesheet">
+    <link href="../../sea-modules/fontawesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../sea-modules/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="../../sea-modules/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../sea-modules/layer/layer.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../sea-modules/zTree-master/js/jquery.ztree.core.js"></script>
+    <script type="text/javascript" src="../../js/module.js"></script>
+    <link href="../../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/c-base.css" rel="stylesheet" type="text/css" />
+    <!--[if lt IE 9]>
+      <script src="../../sea-modules/html5shiv.min.js"></script>
+      <script src="../../sea-modules/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+
+
+
+</style>
+
+<body>
+    <div class="container layer-main">
+        <form class="form-horizontal" role="form" id="infoForm">
+            <div class="edit_form edit_form_ch_add">
+                <div class="form-group">
+                    <label for="userName" class="col-sm-2 control-label"><span>*</span>姓名</label>
+                    <div class="col-sm-4">
+                        <input type="input" class="form-control" id="userName" name="ipAddr" >
+                    </div>
+                    <label for="userCode" class="col-sm-2 control-label"><span>*</span>编号</label>
+                    <div class="col-sm-4">
+                        <input type="input" class="form-control" id="userCode" name="port" >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="office" class="col-sm-2 control-label"><span>*</span>所属单位</label>
+                    <div class="col-sm-4">
+                        <input type="input" class="form-control" id="office" >
+                    </div>
+                    <label for="post" class="col-sm-2 control-label"><span>*</span>单位职务</label>
+                    <div class="col-sm-4">
+                        <input type="input" class="form-control" id="post" >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="officeRole" class="col-sm-2 control-label"><span>*</span>组织角色</label>
+                    <div class="col-sm-4">
+                        <select class="form-control c-s-sel" content="c-sel-org" id="officeRole" >
+                            <option>请选择</option>
+
+                        </select>
+                    </div>
+                    <label for="hasLiaison" class="col-sm-2 control-label" >是否有联络员</label>
+                    <div class="col-sm-4">
+                        <select class="form-control c-s-sel" content="c-sel-org" id="hasLiaison" >
+                            <option value="1">否</option>
+                            <option value="0">是</option>
+
+                        </select>
+                    </div>
+                </div>
+                    <div class="form-group">
+                        <label for="showPost" class="col-sm-2 control-label">职务展示</label>
+                        <div class="col-sm-10">
+                            <input type="input" class="form-control long-form-control" id="showPost" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="duty" class="col-sm-2 control-label">任务分工</label>
+                        <div class="col-sm-10">
+                            <input type="input" class="form-control long-form-control" id="duty" >
+                        </div>
+                    </div>
+                <div class="form-group yes-con-people">
+                    <label for="serverName" class="col-sm-2 control-label">联系方式</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" content="c-sel-org" style="width: 200px" name="concatType">
+                            <option>手机</option>
+                            <option>天翼对讲机</option>
+                        </select>
+                        <input type="input" class="form-control middle-form-control" id="" name="concatNo">
+                        <i class="fa fa-plus-circle"></i>
+                            <input type="radio" class="c-radio"  id=""  checked name="isDefault"> 默认
+                    </div>
+                </div>
+                <div class="form-group yes-con-people" >
+                    <label for="serverName" class="col-sm-2 control-label">联系方式</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" content="c-sel-org" style="width: 200px" name="concatType">
+                            <option>手机</option>
+                            <option>天翼对讲机</option>
+                        </select>
+                        <input type="input" class="form-control middle-form-control" id="" name="concatNo">
+                        <i class="fa fa-plus-circle"></i>
+                        <input type="radio" class="c-radio"  id=""  name="isDefault"> 默认
+                    </div>
+                </div>
+                <div class="form-group yes-con-people" id="yes-con-people">
+
+                </div>
+
+<!--                       联络员                        -->
+
+                <div class="c-contact">
+                <div class="form-group">
+                    <label for="liaisonName" class="col-sm-2 control-label">联络员姓名</label>
+                    <div class="col-sm-4">
+                        <input type="input" class="form-control" id="liaisonName" name="ipAddr" >
+                    </div>
+                    <label for="liaisonCode" class="col-sm-2 control-label">联络员编号</label>
+                    <div class="col-sm-4">
+                        <input type="input" class="form-control" id="liaisonCode" name="port" >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="liaisonOffice" class="col-sm-2 control-label">联络员单位</label>
+                    <div class="col-sm-4">
+                        <input type="input" class="form-control" id="liaisonOffice" >
+                    </div>
+                    <label for="liaisonPost" class="col-sm-2 control-label">联络员职务</label>
+                    <div class="col-sm-4">
+                        <input type="input" class="form-control" id="liaisonPost" >
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="serverName" class="col-sm-2 control-label">联络员联系方式</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" content="c-sel-org" style="width: 200px">
+                            <option>手机</option>
+                            <option>天翼对讲机</option>
+                        </select>
+                        <input type="input" class="form-control middle-form-control" id="" >
+                        <i class="fa fa-plus-circle"></i>
+                        <input type="radio" class="c-radio" name="optionsRadios" id=""  checked> 默认
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="serverName" class="col-sm-2 control-label">联络员联系方式</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" content="c-sel-org" style="width: 200px">
+                            <option>手机</option>
+                            <option>天翼对讲机</option>
+                        </select>
+                        <input type="input" class="form-control middle-form-control" id="" >
+                        <i class="fa fa-plus-circle"></i>
+                        <input type="radio" class="c-radio" name="optionsRadios" id=""  checked> 默认
+                    </div>
+                </div>
+                    <div class="form-group " id="no-con-people">
+
+                    </div>
+                </div>
+            </div>
+            <div class="btn_disk choose-btn_disk">
+                <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i>保存</button>
+                <button type="button" class="btn btn-success"><i class="glyphicon glyphicon-repeat"></i>重置</button>
+                <button type="button" class="btn"><i class="glyphicon glyphicon-share"></i>返回</button>
+            </div>
+
+        <!--//    <div class="clearfix"></div>-->
+    </div>
+    </form>
+    </div>
+</body>
+<script type="text/javascript">
+    var concatModes = [];
+
+    //判断是否是ie8或ie9
+    var isIe89 = (navigator.appName == "Microsoft Internet Explorer" && (navigator.appVersion.match(/8./i) == "8." || navigator.appVersion.match(/9./i) == "9.")) ? true : false;
+    $(document).ready(function () {
+        //ie8和ie9下的placeholder兼容
+        if(isIe89) {
+            $(".form-control").addClass("placeholer-ie");
+            $(".form-control").val($(".form-control").attr("placeholder"));
+            $(".form-control").on("focus", function() {
+                if($(".form-control").val() == $(".form-control").attr("placeholder")) {
+                    $(".form-control").val("");
+                }
+                $(".form-control").removeClass("placeholer-ie");
+            });
+            $(".form-control").on("blur", function() {
+                if($(".form-control").val() == "") {
+                    $(".form-control").val($(".form-control").attr("placeholder"));
+                    $(".form-control").addClass("placeholer-ie");
+                }
+            });
+        }
+        haveContactPeo();
+        //新增一行
+        $(".yes-con-people .fa-plus-circle").click(function() {
+            var _this = ' <div style="padding-bottom: 10px;height: 45px">'+
+                '<label for="serverName" class="col-sm-2 control-label">联系方式</label>'+
+                '<div class="col-sm-10">'+
+                '<select class="form-control" content="c-sel-org" style="width: 200px" name="concatType">'+
+                '<option>手机</option>'+
+                '<option>天翼对讲机</option>'+
+                ' </select>'+
+                ' <input type="input" class="form-control middle-form-control" id="" name="concatNo">'+
+                ' <i class="fa fa-minus-circle"></i>'+
+                ' <input type="radio" class="c-radio"  id="" value="option1" name="isDefault"> 默认'+
+                '  </div>'+
+                '  </div>';
+            $("#yes-con-people").append(_this);
+            //删除一行
+            $(".fa-minus-circle").click(function() {
+                $(this).parent().parent().remove();
+            });
+        });
+        //联络员联系方式  新增加一行
+        $(".c-contact .fa-plus-circle").click(function() {
+            var _this = ' <div style="padding-bottom: 10px;height: 45px">'+
+                '<label for="serverName" class="col-sm-2 control-label">联络员联系方式</label>'+
+                '<div class="col-sm-10">'+
+                '<select class="form-control" content="c-sel-org" style="width: 200px">'+
+                '<option>手机</option>'+
+                '<option>天翼对讲机</option>'+
+                ' </select>'+
+                ' <input type="input" class="form-control middle-form-control" id="" >'+
+                ' <i class="fa fa-minus-circle"></i>'+
+                ' <input type="radio" class="c-radio" name="optionsRadios" id="" value="option1" checked> 默认'+
+                '  </div>'+
+                '  </div>';
+            $("#no-con-people").append(_this);
+            //删除一行
+            $(".fa-minus-circle").click(function() {
+                $(this).parent().parent().remove();
+            });
+        });
+
+        $("#hasLiaison").change(function () {
+            haveContactPeo()
+        });
+
+
+//iframe  刷新，实现重置
+        $(".btn-success").click(function () {
+            window.location.reload()
+        })
+
+    });
+//判断是否是有联络员
+    function haveContactPeo() {
+        if($("#hasLiaison").val() == 1){
+            $(".yes-con-people").css("display","block");
+            $(".c-contact").css("display","none");
+        }else {
+            $(".yes-con-people").css("display","none");
+            $(".c-contact").css("display","block");
+        }
+    }
+    //判断是否是有联络员  点击保存执行不同的方法
+   $(".btn-primary").on("click",function () {
+       if($("#haveContactPeo").val() == 1){
+           haveConPeo()
+       }else {
+           notHaveConPeo()
+       }
+   })
+    function notHaveConPeo() {
+
+            var concatType = [];
+            var concatNo = [];
+            var isDefault = [];
+            //将电话取值，然后存入数组中
+            $("select[name='concatType']").each(function () {
+                concatType.push($(this).val())
+            });
+            $("input[name='concatNo']").each(function () {
+                concatNo.push($(this).val())
+            });
+          //  console.log($("input:radio[name='isDefault']:checked").attr("class"))
+            $("input:radio[name='isDefault']").each(function () {
+                alert($(this).attr("checked"))
+                isDefault.push($(this).attr("checked"))
+            });
+            console.log(concatType);
+            console.log(concatNo);
+            console.log(isDefault);
+
+//            for (var i = 0; i < telArr.length; i++) {
+//
+//                concatModes.push({tel: telArr[i], telDes: telDesArr[i], isDefault: 0});
+//            }
+           /* $.ajax({
+         async: false,
+         cache: false,
+         dataType: "json",
+         type: "get",
+         data: {
+         departmentCode: $(".departmentCode").val(),
+         departmentName: $(".departmentName").val(),
+         provinceCode: $(".provinceCode").val(),
+         cityCode: $(".cityCode").val(),
+         companyCode: $(".companyCode").val(),
+         address: $(".address").val(),
+         sort: $(".sort").val(),
+         concatModes: concatModes,
+         remark: $(".remark").val()
+         },
+         url: "pablic-table.json",
+         success: function (res) {
+         if (success == true) {
+         window.parent.layer.alert("修改成功！");
+         } else {
+         window.parent.layer.alert("修改失败！");
+         }
+
+         },
+         error: function (jqXHR, textStatus, errorThrown) {
+         if (textStatus !== "error") {
+         window.parent.layer.alert("修改失败！");
+         }
+         }
+
+         })*/
+
+    }
+
+    function haveConPeo() {
+        function query() {
+            var telArr = [];
+            var telDesArr = [];
+            //将电话取值，然后存入数组中
+            $("input[name='1']").each(function () {
+                telArr.push($(this).val())
+            });
+            $("input[name='2']").each(function () {
+                telDesArr.push($(this).val())
+            });
+            for (var i = 0; i < telArr.length; i++) {
+                concatModes.push({tel: telArr[i], telDes: telDesArr[i], isDefault: 0});
+            }
+            $.ajax({
+                async: false,
+                cache: false,
+                dataType: "json",
+                type: "get",
+                data: {
+                    departmentCode: $(".departmentCode").val(),
+                    departmentName: $(".departmentName").val(),
+                    provinceCode: $(".provinceCode").val(),
+                    cityCode: $(".cityCode").val(),
+                    companyCode: $(".companyCode").val(),
+                    address: $(".address").val(),
+                    sort: $(".sort").val(),
+                    concatModes: concatModes,
+                    remark: $(".remark").val()
+                },
+                url: "pablic-table.json",
+                success: function (res) {
+                    if (success == true) {
+                        window.parent.layer.alert("修改成功！");
+                    } else {
+                        window.parent.layer.alert("修改失败！");
+                    }
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    if (textStatus !== "error") {
+                        window.parent.layer.alert("修改失败！");
+                    }
+                }
+            });
+        }
+
+        }
+</script>
+
+</html>
