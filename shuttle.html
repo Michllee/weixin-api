@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+
+	
+	<style>
+		<style>
+    .all_dev .table {
+  border: 1px solid #ccc; }
+  .all_dev .table thead {
+    border-bottom: 1px solid #ccc; }
+  .all_dev .table tbody {
+    background: #f5f9f8; }
+    .all_dev .table tbody th {
+      border: none !important; }
+  </style>
+	</style>
+</head>
+<body ng-controller="testctrl" ng-app="app">
+	<div class="part_dev form-group" ng-show="shuttle_show">
+                       <div class="all_dev">
+                           <div class="shuttle_talbe_l col-md-5" style="margin-top: 20px;">
+                               <table class="table">
+                                   <thead>
+                                        <tr>
+                                            <th><input type="checkbox"
+                                                       ng-click="selectAll(checkStatusL,commitData.commitArrLeft,commitData.commitArrRight)"
+                                                       ng-model="checkStatusL"></th>
+                                            <th>可选设备号</th>
+                                            <th>IMEI</th>
+                                        </tr>
+                                   </thead>
+                                   <tbody><!-- ,commitData.commitArrMiddle -->
+                                       <tr ng-repeat="data in commitData.commitArrLeft">
+                                           <th><input type="checkbox"
+                                                      ng-checked="checkStatusL"
+                                                      ng-model="data.state"
+                                                      ng-click="isCheck(data,$event,commitData.commitArrLeft,commitData.commitArrRight)"
+
+                                           value="{{data.id}}"></th>
+                                           <th>{{data.id}}</th>
+                                           <th>{{data.imei}}</th>
+                                       </tr>
+                                   </tbody>
+                               </table>
+                               <div class="row " style="margin-top: 24px;margin-bottom: 24px">
+                                   <div class="col-md-3">第{{currentPage}}页/共{{numPages}}页</div>
+                                   <div pagination
+                                        boundary-links="true"
+                                        total-items="totalItems"
+                                        items-per-page="itemsPerPage"
+                                        ng-model="currentPage"
+                                        previous-text="上一页"
+                                        next-text="下一页"
+                                        first-text="首页"
+                                        last-text="末页"
+                                        ng-change="pageChanged()"
+                                        rotate="false"
+                                        num-pages="numPages"
+                                        max-size="maxSize"
+                                        class="pull-right"
+                                        style="margin: -10px 15px 0 0">
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="shuttle_operate col-md-1" style="margin-top: 80px;">
+                               <div class="arr_r" style="text-align: center;" ng-click="arr_r()">
+                                   <img src="../static/arr_r.png" alt="" style="height: 38px;width: 38px;">
+                               </div>
+                               <div class="arr_l" style="text-align: center;margin-top: 20px;" ng-click="arr_l()">
+                                   <img src="../static/arr_l.png" alt="" style="height: 38px;width: 38px;">
+                               </div>
+                           </div>
+                           <div class="shuttle_talbe_r col-md-5" style="margin-top: 20px;">
+                               <table class="table">
+                                   <thead>
+                                   <tr>
+                                       <th><input type="checkbox"
+                                                  ng-click="selectAll(checkStatusR,commitData.commitArrRight,commitData.commitArrLeft)"
+                                                  ng-model="checkStatusR"></th>
+                                       <th>可选设备号</th>
+                                       <th>IMEI</th>
+                                   </tr>
+                                   </thead>
+                                   <tbody>
+                                       <tr ng-repeat="data in commitData.commitArrRight"
+                                            ng-checked="checkStatusR"
+                                            ng-model="data.state"
+                                            ng-click="isCheck(data,$event,commitData.commitArrRight,commitData.commitArrLeft)">
+                                           <th><input type="checkbox"></th>
+                                           <th>{{data.id}}</th>
+                                           <th>{{data.imei}}</th>
+                                       </tr>
+                                   </tbody>
+                               </table>
+                               <div class="row " style="margin-top: 24px;margin-bottom: 24px">
+                                   <div class="col-md-3">第{{currentPage}}页/共{{numPages}}页</div>
+                                   <div pagination
+                                        boundary-links="true"
+                                        total-items="totalItems"
+                                        items-per-page="itemsPerPage"
+                                        ng-model="currentPage"
+                                        previous-text="上一页"
+                                        next-text="下一页"
+                                        first-text="首页"
+                                        last-text="末页"
+                                        ng-change="pageChanged()"
+                                        rotate="false"
+                                        num-pages="numPages"
+                                        max-size="maxSize"
+                                        class="pull-right"
+                                        style="margin: -10px 15px 0 0">
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+</body>
+<script>
+	var app = angular.module('app', []);
+
+	app.controller('testctrl',['$scope',function($scope){
+    //数据初始化
+    var vm  = $scope;
+    vm.shuttle_show = true;
+    vm.checkStatusL = false;//选中标记位
+    vm.checkStatusR = false;//选中标记位
+
+
+
+    //测试数据
+    vm.testData = {
+        devinfo:[
+            {
+                id:'9C6B000013',
+                imei:'123456789012345',
+            },
+            {
+                id:'9C6B000026',
+                imei:'123456789012345',
+            },
+            {
+                id:'9C6B000046',
+                imei:'123456789012345',
+            },
+            {
+                id:'9C6B000531',
+                imei:'123456789012345',
+            },
+            {
+                id:'9C6B000141',
+                imei:'123456789012345',
+            }
+        ]
+    }
+    vm.commitData = {
+        commitArrLeft:[],//左穿梭框已选中
+        commitArrRight:[],//右穿梭框已选中
+        commitArrMiddle:[]//操作暂存区
+    }
+
+    vm.commitData.commitArrLeft = vm.testData.devinfo;
+    //单选
+    vm.isCheck = function (data,$event,oper_arr,target_arr) {
+        var self = this ;
+        if($event.target.checked == true){
+            // vm.commitData.commitArrLeft.push(data)
+            oper_arr.splice(self.$index,1);
+            target_arr.push(data);
+
+        }
+
+    }
+
+    //全选方法
+    vm.selectAll = function (defaultCheck,oper_arr,target_arr) {
+        defaultCheckltC=!defaultCheck;
+    var m  = oper_arr.splice(0,oper_arr.length);
+    m.forEach(function(e,i,arr){
+
+    target_arr.push(e);
+})
+
+
+
+    }
+
+
+}]);
+</script>
+</html>
